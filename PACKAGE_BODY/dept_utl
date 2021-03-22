@@ -1,0 +1,23 @@
+
+create or replace package body dept_utl as
+
+　-- ファンクション get_dept_nameの本体
+　function get_dept_name(v_dept_id in char) return varchar2 as
+　　v_dept_name varchar2(10);
+　begin
+　　select dept_name into v_dept_name from dept
+　　　where dept_id = v_dept_id;
+　　if sql%notfound then
+　　　raise e_deptNotFound;
+　　end if;
+　　return v_dept_name;
+　end get_dept_name;
+
+　-- プロシージャ insert_deptの本体
+　procedure insert_dept(v_dept_id in char,v_dept_name in varchar2) as
+　begin
+　　insert into dept values(v_dept_id,v_dept_name);
+　　commit;
+　end insert_dept;
+
+end dept_utl;

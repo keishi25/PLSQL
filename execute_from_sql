@@ -1,0 +1,1 @@
+select dept_utl.get_dept_name('D01') from dual;

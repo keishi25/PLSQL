@@ -1,0 +1,5 @@
+declare
+
+begin
+　dept_utl.insert_dept('D04','営業');
+end;

@@ -1,0 +1,11 @@
+
+create or replace package dept_utl as
+
+  -- ファンクションget_dept_name の定義
+　function get_dept_name(v_dept_id in char) return varchar2;
+  -- プロシージャinsert_deptの定義
+　procedure insert_dept(v_dept_id in char,v_dept_name in varchar2);
+  -- 例外e_deptNotFoundの定義
+　e_deptNotFound exception;
+
+end dept_utl;
